@@ -1,0 +1,27 @@
+
+.recursive-wrapper {
+    .recursive-template {
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+        .header {
+            animation: rotation 10s infinite linear;
+        }
+    }
+    .header {
+        display: inline-block;
+        font-size: 25px;
+        font-weight: bold;
+        color: #007bff;
+    }
+}
+
+
+@keyframes rotation {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(359deg);
+    }
+}

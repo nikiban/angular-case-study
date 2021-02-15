@@ -1,0 +1,27 @@
+.dynamic-div-wrapper {
+    display: flex;
+    justify-content: center;
+    .parent-div {
+        max-width: 1060px;
+        overflow: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .child-div {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dee2e6;
+            margin-bottom: 15px;
+        }
+    }
+}
+.main-header {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    color: #007bff;
+}

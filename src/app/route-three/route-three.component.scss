@@ -1,0 +1,16 @@
+.counter-wrapper {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    .main-header {
+        font-size: 25px;
+        font-weight: bold;
+        color: #007bff;
+    }
+    .counter-rows:first-child {
+        div {
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="mb-3 main-header">
+        Dynamic div on scroll
+      </div>
+      <div class="dynamic-div-wrapper">
+        <div class="parent-div" id="dynamicParentId">
+          <div class="child-div" *ngFor="let item of dynamicData">
+            <button type="button" class="btn btn-primary" (click)=showAlert(item)>{{item}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

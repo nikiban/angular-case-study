@@ -1,0 +1,16 @@
+.counter-input-wrapper {
+    padding: 1rem;
+    .paused-at-wrapper {
+        max-height: 50px;
+        min-height: 50px;
+        overflow: auto;
+        color: #645b5b;
+        font-size: 15px;
+    }
+    .error-wrapper {
+        color: red;
+        font-size: 12px;
+        position: absolute;
+        top: 100%;
+    }
+}

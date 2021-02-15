@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 counter-wrapper">
+      <div class="main-header mb-2">Counter with Inout/Output</div>
+      <div class="container-fluid">
+        <div class="row counter-rows justify-content-around">
+          <div class="col-5">
+            <app-counter-display [counterValue]="counter"></app-counter-display>
+          </div>
+          <div class="col-5">
+            <app-counter-input (timerTrigger)="timerOperations($event)" [pausedAt]="pausedAt" [counterStatus]="counterStatus"></app-counter-input>
+          </div>
+        </div>
+        <div class="row counter-rows mt-4 justify-content-around">
+          <div class="col-5">
+            <app-counter-timestamp [timeStampArray]="timeStampArray"></app-counter-timestamp>
+          </div>
+          <div class="col-5">
+            <app-counter-trigger-count [countTriggers]="countTriggers"></app-counter-trigger-count>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

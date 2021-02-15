@@ -1,0 +1,19 @@
+<ng-template #recursiveTemplateRef let-recData="recData">
+  <div class="recursive-template" *ngFor="let item of recData">
+    <ng-container *ngIf="item.child.length; else textTemp">
+      <ng-template *ngTemplateOutlet="recursiveTemplateRef; context: { recData: item.child }"></ng-template>
+    </ng-container>
+    <ng-template #textTemp>
+      <span class="header">{{item.title}}</span>
+    </ng-template>
+  </div>
+</ng-template>
+
+<div class="container-fluid recursive-wrapper">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="header mb-3">Recursive Divs</div>
+      <ng-template *ngTemplateOutlet="recursiveTemplateRef; context: { recData: recursiveData }"></ng-template>
+    </div>
+  </div>
+</div>
