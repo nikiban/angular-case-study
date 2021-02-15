@@ -1,6 +1,6 @@
 <div class="counter-timestamp-wrapper">
     <div class="header mb-2">Time stamps</div>
     <div class="list">
-        <div *ngFor="let time of timeStampArray">{{time}}</div>
+        <div *ngFor="let time of timeStampArray">{{time.status}} {{time.date | date:'d-MM-YYYY hh:mm:ss a'}}</div>
     </div>    
 </div>

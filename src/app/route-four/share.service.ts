@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+interface TimeObj {
+  status: string;
+  date: Date;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +16,7 @@ export class ShareService {
   public countTriggers: { start: number, pause: number };
   public counterValue: number;
   public pausedAt: number[];
-  public timeStampArray: string[];
+  public timeStampArray: TimeObj[];
   public updateTimeStamp = new Subject();
   public timerInterval;
   constructor() {
@@ -60,14 +65,13 @@ export class ShareService {
   }
 
   public setTimeStamps(): void {
-    const date = new Date();
-    const dateFormate = `${date.getDay()}-${date.getMonth()}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    const newDate = new Date();
     if (this.counterStatus.isStart) {
       this.countTriggers.start++;
-      this.timeStampArray.push(`Started at ${dateFormate}`);
+      this.timeStampArray.push({status: 'Started at', date: newDate});
     } else {
       this.countTriggers.pause++;
-      this.timeStampArray.push(`Paused at ${dateFormate}`);
+      this.timeStampArray.push({status: 'Paused at', date: newDate});
     }
     this.updateTimeStamp.next({ timestampArray: this.timeStampArray, counterTriggers: this.countTriggers });
   }

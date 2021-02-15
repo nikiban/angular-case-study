@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+interface TimeObj {
+  status: string;
+  date: Date;
+}
+
 @Component({
   selector: 'app-route-three',
   templateUrl: './route-three.component.html',
@@ -7,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RouteThreeComponent implements OnInit {
   public counter: number;
-  public timeStampArray: string[];
+  public timeStampArray: TimeObj[];
   public countTriggers: { start: number, pause: number };
   public counterStatus: { isStart: boolean, isReset: boolean };
   public pausedAt: number[];
@@ -55,14 +60,13 @@ export class RouteThreeComponent implements OnInit {
   }
 
   public setTimeStamps(): void {
-    const date = new Date();
-    const dateFormate = `${date.getDay()}-${date.getMonth()}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    const newDate = new Date();
     if (this.counterStatus.isStart) {
       this.countTriggers.start++;
-      this.timeStampArray.push(`Started at ${dateFormate}`);
+      this.timeStampArray.push({status: 'Started at', date: newDate});
     } else {
       this.countTriggers.pause++;
-      this.timeStampArray.push(`Paused at ${dateFormate}`);
+      this.timeStampArray.push({status: 'Paused at', date: newDate});
     }
   }
 
