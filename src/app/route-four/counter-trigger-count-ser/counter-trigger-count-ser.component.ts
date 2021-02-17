@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShareService } from '../share.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-counter-trigger-count-ser',
   templateUrl: './counter-trigger-count-ser.component.html',
   styleUrls: ['./counter-trigger-count-ser.component.scss']
 })
-export class CounterTriggerCountSerComponent implements OnInit {
+export class CounterTriggerCountSerComponent implements OnInit, OnDestroy {
   public countTriggers: { start: number, pause: number };
+  public updateSubs: Subscription;
   constructor(private shareService: ShareService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,10 @@ export class CounterTriggerCountSerComponent implements OnInit {
     this.shareService.updateTimeStamp.subscribe((data: any) => {
       this.countTriggers = data.counterTriggers;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.updateSubs.unsubscribe();
   }
 
 }
